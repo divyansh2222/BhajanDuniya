@@ -6,7 +6,7 @@ import AdSection3 from "../components/Adsection3";
 import CommentBox from "../components/CommentBox";
 import { useBhajan } from "../context/BhajanContext"; 
 import RelatedSongs from "../components/RelatedSongs";
-import YoutubeVideo from "../components/Youtubevideo";
+import YoutubeVideo from "../components/YoutubeVideo";
 
 function Bhajan() {
   const { title } = useParams();
