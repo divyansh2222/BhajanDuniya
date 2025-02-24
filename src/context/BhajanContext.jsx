@@ -9,7 +9,7 @@ export const BhajanProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState(""); // 🔍 Search state
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("http://localhost:3000/api/songs")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));

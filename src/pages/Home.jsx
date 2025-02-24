@@ -4,11 +4,10 @@ import AdSection from "../components/AdSection";
 import Box from "../components/Box";
 
 function Home() {
-  const { data, searchQuery } = useBhajan();
-
- 
+  const { data, searchQuery } = useBhajan()
+ console.log("Data: in home",data);
   const filteredData = data.filter((item) =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   // Pagination logic
@@ -21,6 +20,7 @@ function Home() {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  console.log("Paginated Data:", paginatedData);  
 
   return (
     <div className="bg-green-100 p-4">
@@ -29,7 +29,7 @@ function Home() {
         <div className="flex flex-wrap gap-7 justify-center">
           {paginatedData.length > 0 ? (
             paginatedData.map((item, index) => (
-              <Box key={index} title={item.title} imageUrl={item.image} />
+              <Box key={index} name={item.name} imageUrl={item.image} lyrics={item.lyrics} category={item.category}  likes={item.likes}/> 
             ))
           ) : (
             <p className="text-red-600 text-center w-full">No results found.</p>
