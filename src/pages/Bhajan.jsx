@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import AdSection2 from "../components/AdSection2";
-import AdSection3 from "../components/AdSection3";
+import AdSection3 from "../components/Adsection3";
 import CommentBox from "../components/CommentBox";
 import { useBhajan } from "../context/BhajanContext";
 import RelatedSongs from "../components/RelatedSongs";
