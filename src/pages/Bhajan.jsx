@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import AdSection2 from "../components/AdSection2";
-import AdSection3 from "../components/Adsection3";
+import AdSection3 from "../components/AdSection3";
 import CommentBox from "../components/CommentBox";
 import { useBhajan } from "../context/BhajanContext";
 import RelatedSongs from "../components/RelatedSongs";
@@ -9,21 +9,21 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import Loader from "../components/Loader";
 
 function Bhajan() {
-  const { name } = useParams();
+  const { id } = useParams(); // Get ID from URL
   const { data } = useBhajan();
 
-  // Find the matching song based on the name
-  const song = data.find((item) => item.name.toLowerCase() === decodeURIComponent(name).toLowerCase());
+  // Find the matching song based on ID
+  const song = data.find((item) => item.id === id);
 
   useEffect(() => {
-    console.log("Bhajan Title:", name);
-  }, [name]);
+    console.log("Bhajan ID:", id);
+  }, [id]);
 
   if (!song) {
-    return <Loader/>;
+    return <Loader />;
   }
 
-  const { lyrics, singer, category, youtubeLink } = song;
+  const { name, lyrics, singer, category, youtubeLink } = song;
 
   // Function to download lyrics with new line formatting
   const downloadLyrics = () => {
@@ -48,8 +48,8 @@ function Bhajan() {
   return (
     <div className="p-4 sm:p-6 bg-green-100 min-h-screen overflow-x-hidden">
       {/* Title */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl text-amber-800 mt-2 text-center font-bold">{song.name}</h1>
-      <p className="text-sm sm:text-md text-center text-gray-700">{song.category}</p>
+      <h1 className="text-xl sm:text-2xl md:text-3xl text-amber-800 mt-2 text-center font-bold">{name}</h1>
+      <p className="text-sm sm:text-md text-center text-gray-700">{category}</p>
 
       {/* Ad Section */}
       <div className="my-4">
@@ -81,14 +81,14 @@ function Bhajan() {
           onClick={downloadLyrics}
           className="my-5 px-5 sm:px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all text-sm sm:text-md"
         >
-           डाउनलोड करें
+          डाउनलोड करें
         </button>
       </div>
 
       {/* YouTube Video Section */}
       {youtubeLink && (
         <div className="my-8 max-w-3xl mx-auto">
-          <YoutubeVideo url={youtubeLink} name={song.name} />
+          <YoutubeVideo url={youtubeLink} name={name} />
         </div>
       )}
 
@@ -102,7 +102,7 @@ function Bhajan() {
         <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-900">🔗 मिलते-जुलते भजन...</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-4">
           {data
-            .filter((item) => item.name !== song.name)
+            .filter((item) => item.id !== song.id) // Filter by ID instead of name
             .slice(0, 6)
             .map((item, index) => (
               <RelatedSongs key={index} name={item.name} imageUrl={item.image} />

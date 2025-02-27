@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
-function Box({ name, imageUrl, category, likes }) {
+function Box({ id, name, imageUrl, category, likes }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log("Navigating to Bhajan:", name);
-    navigate(`/bhajan/${encodeURI(name)}`); // Use encodeURI for a cleaner URL
+    console.log("Navigating to Bhajan:", id); // Use ID instead of name
+    navigate(`/bhajan/${id}`); // Navigate using a clean ID-based URL
   };
 
   return (

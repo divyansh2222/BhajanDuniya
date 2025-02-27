@@ -28,13 +28,20 @@ function Home() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-4">
         {/* Bhajan Boxes Grid */}
         <div className="flex flex-wrap gap-7 justify-center">
-          {paginatedData.length > 0 ? (
-            paginatedData.map((item, index) => (
-              <Box key={index} name={item.name} imageUrl={item.image} lyrics={item.lyrics} category={item.category}  likes={item.likes}/> 
-            ))
-          ) : (
-            <Loader/>
-          )}
+        {paginatedData.length > 0 ? (
+  paginatedData.map((item, index) => (
+    <Box 
+      key={index} 
+      id={item.id}  // Pass ID instead of name
+      name={item.name} 
+      imageUrl={item.image} 
+      category={item.category}  
+      likes={item.likes}
+    /> 
+  ))
+) : (
+  <Loader />
+)}
         </div>
 
         {/* Ad Section (Moves below content on smaller screens) */}
