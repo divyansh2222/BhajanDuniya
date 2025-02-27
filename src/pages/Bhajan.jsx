@@ -23,7 +23,7 @@ function Bhajan() {
     return <Loader />;
   }
 
-  const { name, lyrics, singer, category, youtubeLink } = song;
+  const { name, lyricssd, singer, category, youtubeLink } = song;
 
   // Function to download lyrics with new line formatting
   const downloadLyrics = () => {
@@ -31,7 +31,7 @@ function Bhajan() {
       alert("Lyrics not available for download.");
       return;
     }
-
+// hsahahj hash hashj
     // Replace commas with new lines
     const formattedLyrics = lyrics.split(",").map(line => line.trim()).join("\n");
 
