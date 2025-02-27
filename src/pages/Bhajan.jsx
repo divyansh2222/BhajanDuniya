@@ -22,7 +22,7 @@ function Bhajan() {
     return <Loader />;
   }
 
-  const { name, lyricssd, singer, category, youtubeLink } = song;
+  const { name, lyrics, singer, category, youtubeLink } = song;
 
   // Function to download lyrics with new line formatting
   const downloadLyrics = () => {
