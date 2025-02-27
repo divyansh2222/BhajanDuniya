@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import AdSection2 from "../components/AdSection2";
-import AdSection3 from "../components/AdSection3";
 import CommentBox from "../components/CommentBox";
 import { useBhajan } from "../context/BhajanContext";
 import RelatedSongs from "../components/RelatedSongs";
@@ -70,9 +69,9 @@ function Bhajan() {
         <p className="mb-5 text-gray-700"> श्रेणी : {category}</p>
       </div>
 
-      {/* Second Ad Section */}
-      <div className="my-4">
-        <AdSection3 />
+     {/* Ad Section */}
+     <div className="my-4">
+        <AdSection2 />
       </div>
 
       {/* Download Button */}
