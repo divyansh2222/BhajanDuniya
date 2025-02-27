@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useBhajan } from "../context/BhajanContext";
 import AdSection from "../components/AdSection";
 import Box from "../components/Box";
+import Loader from "../components/Loader";
 
 function Home() {
   const { data, searchQuery } = useBhajan()
@@ -32,7 +33,7 @@ function Home() {
               <Box key={index} name={item.name} imageUrl={item.image} lyrics={item.lyrics} category={item.category}  likes={item.likes}/> 
             ))
           ) : (
-            <p className="text-red-600 text-center w-full">No results found.</p>
+            <Loader/>
           )}
         </div>
 

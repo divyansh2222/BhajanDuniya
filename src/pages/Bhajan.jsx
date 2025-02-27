@@ -6,6 +6,7 @@ import CommentBox from "../components/CommentBox";
 import { useBhajan } from "../context/BhajanContext";
 import RelatedSongs from "../components/RelatedSongs";
 import YoutubeVideo from "../components/YoutubeVideo";
+import Loader from "../components/Loader";
 
 function Bhajan() {
   const { name } = useParams();
@@ -19,7 +20,7 @@ function Bhajan() {
   }, [name]);
 
   if (!song) {
-    return <p className="text-center text-red-600 mt-10">Bhajan not found</p>;
+    return <Loader/>;
   }
 
   const { lyrics, singer, category, youtubeLink } = song;

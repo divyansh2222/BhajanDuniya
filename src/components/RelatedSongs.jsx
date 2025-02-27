@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-function RelatedSongs({ name, imageUrl }) {
+function RelatedSongs({ name, imageUrl, category, likes }) {  
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -13,8 +13,8 @@ function RelatedSongs({ name, imageUrl }) {
         <h3 className="text-sm font-semibold text-gray-800">{name}</h3>
       </div>
       <div className="flex justify-between items-center pb-2 px-4 text-sm text-gray-600">
-        <p>शिव भजन</p>
-        <p>345</p>
+      <p>{category}</p>
+      <p>{likes}</p>
       </div>
     </div>
   );
